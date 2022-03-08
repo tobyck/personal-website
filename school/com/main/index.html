@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="TobyFavicon.png">
+    <title>10COM - Toby</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+    :root {
+        --font: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    }
+
+    body {
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+    }
+
+    span {
+        font-family: var(--font);
+        font-weight: 600;
+        font-size: 5vw;
+        display: inline-block;
+        white-space: pre;
+    }
+
+    .link {
+        color: #00bfff !important;
+        transition: color 0.4s ease;
+    }
+
+    .link:hover {
+        color: #ff4ffb !important;
+        cursor: pointer;
+    }
+
+    #continue, .link {
+        font-family: var(--font);
+        font-weight: 400;
+        font-size: 1.2vw !important;
+        text-align: center;
+        color: #444;
+        opacity: 1;
+    }
+
+    #continue {
+        position: absolute;
+        left: 50%;
+        bottom: 2.5vh;
+        transform: translate(-50%, 0);
+    }
+
+    video {
+        width: 80vw;
+        height: 70vh;
+    }
+
+    @keyframes down {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(60vh);
+        }
+    }
+</style>
+<body>
+    <div class="container"></div>
+    <p id="continue">Click Anywhere to Continue</p>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    text = {
+        0: "Hello!",
+        1: "I'm Toby.",
+        2: "This is my 10COM project."
+    }, clicks = 0;
+
+    $("#continue").fadeOut(0);
+
+    const setText = line => {
+        $(".container").css("opacity", "0");
+        line.split("").forEach((char, count) => $(".container").append(`<span id='span${count}'>${char}</span>`));
+        $(".container").animate({
+            opacity: "1"
+        }, 500);
+    }; setTimeout(() => {
+        setText(text[0]);
+        $("#continue").delay(700).fadeIn(600);
+        $(document).bind("click keydown", event => {
+            if ((event.type == "click" || event.keyCode == 32) && clicks < Object.values(text).length) {
+                var delay = 0;
+                $("#continue").fadeOut(200);
+                for (let i = 0; i < text[clicks].length; i++) {
+                    delay = (i + 1) ** 2 / (text[clicks].length * 70);
+                    $("#span" + i).css("animation", `down ${0.5 + delay}s forwards ${delay}s ease-in-out`);
+                } clicks++;
+                setTimeout(() => {
+                    $(".container").empty();
+                    if (clicks < Object.keys(text).length) {
+                        setText(text[clicks]);
+                        $("#continue").delay(700).fadeIn(300);
+                    } else {
+                        $("#continue").fadeOut(200);
+                        $(".container").html('<video controls src="toby.mp4"></video>');
+                        $("#continue").html(`Thanks for stopping by! Click <span class="link" onclick="location.reload()">here</span> to go<br>back to the beginning of the website.`).delay(30000).fadeIn(300);
+                    }
+                }, delay * 1000 + (500 + delay));
+            }
+        });
+    }, 800);
+</script>
+</html>
