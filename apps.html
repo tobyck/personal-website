@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="TobyFavicon.png">
+    <link id="stylesheet" rel="stylesheet" href="main.css">
+    <title>Toby Connor-Kebbell - Apps</title>
+</head>
+<body>
+    <p class="title"><a href="https://tobyck.surge.sh" class="title">Toby Connor-Kebbell</a></p>
+    <p class="subtitle">Apps</p> 
+    <p class="main"></p>
+    <div class="buttons">
+        <button onclick="last();" class="left"><img src="left.png" alt="Previous Project"></button>
+        <button class="home"><a href="https://tobyck.surge.sh" onclick="home();"><img src="home.png" alt="Go to home page" class="home-img"></a></button>
+        <button onclick="next();" class="right"><img src="right.png" alt="Next Project"></button>
+    </div> 
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script.js"></script>
+<script>
+    var list = [`
+    <b>Simply Script<br>Mar '22</b><br><br>
+    
+    Simply Piano, Simply Guitar, Simply Dental, Simply Security, Simply Milk, Simply Almonds (yes, that exists), and now, Simply Script. This is a programming language I made with extremely simple and easy to read syntax, for example: age is number 14. Go to the GitHub <a href="https://github.com/TobyCK/simply-script">repository</a> for instructions on how to use it.`, 
+    
+    `<b>Calculator<br>Apr '21</b><br><br>
+
+    This is one of the first projects I did with <a href="https://en.wikipedia.org/wiki/Tkinter" target="_blank">Tkinter</a> so it's not the best calculator you'll find. But it was fun to make, you can download the EXE <a href="downloads/calculator.zip" download>here</a> or the source code <a href="downloads/calculator.py" download>here</a>. (There's plenty of room for improvement...)`, 
+    
+    `<b>Text Pad<br>Apr '21</b></b><br><br>
+
+    This is a text pad that I made with <a href="https://en.wikipedia.org/wiki/Tkinter" target="_blank">Tkinter</a>. I've added some formatting features, but soon after, I realized that Tkinter text boxes cannot read formatting, 😔. You can download it <a href="downloads/text-pad.zip" download>here</a>.`], proj = 0;
+    
+    $(".main").html(list[proj]);
+
+    document.addEventListener("keyup", event => {
+        if (event.keyCode == 37) {
+            last();
+        } else if (event.keyCode == 39) {
+            next();
+        }
+    });
+</script>
+</html>

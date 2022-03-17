@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<style>
+    div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        font-size: 5em;
+        font-family: -apple-system, BlinkMacSystemFont;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <div id="container"></div>
+</body>
+<script src="https://title-animation.surge.sh/script.js"></script>
+<script>
+    element = document.getElementById("container");
+    clearText(element);
+    setText(element, "Hello World!", 500, 1000);
+    animate(element, "60vh", 700, 1500);
+    animate(element, "0", 700, 3000);
+</script>
+</html>

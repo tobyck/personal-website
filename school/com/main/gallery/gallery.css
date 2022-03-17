@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+.container {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+}
+
+#caption {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}
+
+img {
+    height: 60vh;
+    transition: opacity 0.25s ease;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+button, .button, .home-img {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+}
+
+.home-img {
+    transform: scale(1.1);
+    transition: 0.4s ease;
+}
+
+.home:hover .home-img {
+    transform: scale(-1.1, 1.1);
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.spacer {
+    display: inline-block;
+    width: 12px;
+}
+
+.left-animation {
+    animation: bounce-left 2s;
+}
+
+.right-animation {
+    animation: bounce-right 2s;
+}
+
+@keyframes bounce-left {
+    0%   {transform: scale(1.0, 1.0) translateY(0);}
+    10%  {transform: scale(0.9, 1.1) translateX(6px);}
+    20%  {transform: scale(0.9, 1.2) translateX(6px);}
+    30%  {transform: scale(1.1, 0.8) translateX(-15px);}
+    50%  {transform: scale(1.0, 1.0) translateX(0);}
+    100% {transform: scale(1.0, 1.0) translateX(0);}
+}
+
+@keyframes bounce-right {
+    0%   {transform: scale(1.0, 1.0) translateY(0);}
+    10%  {transform: scale(0.9, 1.1) translateX(-4px);}
+    20%  {transform: scale(0.9, 1.2) translateX(-4px);}
+    30%  {transform: scale(1.1, 0.8) translateX(15px);}
+    50%  {transform: scale(1.0, 1.0) translateX(0);}
+    100% {transform: scale(1.0, 1.0) translateX(0);}
+}
