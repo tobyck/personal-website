@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+body {
+    overflow: hidden;
+}
+
+#custom-alert-darken {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 150vh;
+    background-color: black;
+    opacity: 0.3;
+}
+
+#custom-alert-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 14px;
+}
+
+#custom-alert-text {
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    padding: 2px 20px 50px 20px;
+}
+
+.custom-alert-link {
+    color: #5891ed;
+}
+
+.custom-alert-link:hover {
+    color: #81acf0;
+}
+
+#custom-alert-button {
+    position: fixed;
+    right: 20px;
+    bottom: 15px;
+    width: 55px;
+    height: 35px;
+    border: none;
+    border-radius: 7px;
+    background-color: #ddd;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+}
+
+#custom-alert-button:hover {
+    background-color: #ccc;
+}
