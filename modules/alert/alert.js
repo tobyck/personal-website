@@ -15,7 +15,7 @@ function alert(message, width = "450px", height = "") {
     var stylesheet = document.createElement("link");
     stylesheet.id = "custom-alert-stylesheet"
     stylesheet.rel = "stylesheet";
-    stylesheet.href = "alert.css";
+    stylesheet.href = "https://tobyck.surge.sh/modules/alert/alert.css";
     document.head.appendChild(stylesheet);
 
     // create an element to darken the rest of the screen
