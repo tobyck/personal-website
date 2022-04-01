@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
-body {
-    overflow: hidden;
-}
-
 #custom-alert-darken {
     position: fixed;
     top: 0;
@@ -12,6 +8,7 @@ body {
     height: 150vh;
     background-color: black;
     opacity: 0.3;
+    z-index: 9999;
 }
 
 #custom-alert-box {
@@ -21,6 +18,7 @@ body {
     transform: translate(-50%, -50%);
     background-color: white;
     border-radius: 14px;
+    z-index: 9999;
 }
 
 #custom-alert-text {
