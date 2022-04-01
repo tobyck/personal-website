@@ -51,6 +51,7 @@ def rabin_miller(n, k):
             return False
     return True
 ```
+<script src="https://gist.github.com/tobyck/239e7dd92f08abe877914d272c796bff.js"></script>
 <br>
 
 ### Euclidean Algorithm

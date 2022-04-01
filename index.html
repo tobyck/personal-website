@@ -24,11 +24,11 @@
     var date = new Date();
     if (date.getMonth() + 1 == 4 && date.getDate() == 1) {
         document.title = "I'm a teapot";
-        document.getElementsByTagName("body")[0].innerHTML = `
+        document.body.innerHTML = `
         <div>
         <h1><span>418</span> Error</h1>
         <p>
-            I'm a teapot. The server refused to<br>brew coffee because it is also, now a teapot.
+            I'm a teapot. The server refused to brew<br>coffee with a teapot. For more information<br>regarding the Hyper Text Coffee Pot<br>Control Protocol (HTCPCP) see <a href="https://datatracker.ietf.org/doc/html/rfc2324">here</a>.
         </p>
         </div>`;
     }

@@ -1,35 +1,36 @@
 style = document.createElement("style");
-style.innerHTML = `
-body {overflow: hidden}
-span {display: inline-block}
-`;
+style.innerHTML = `body {overflow: hidden}
+span {display: inline-block}`;
 style.id = "title-animation-stylesheet";
 document.head.appendChild(style);
 
-function setText(element, text, time, delay = 0) {
-    element.innerHTML = "";
-    element.style.opacity = 0;
-    element.style.whiteSpace = "pre";
-    element.style.transition = "opacity " + time / 1000 + "s ease";
-    text.split("").forEach((char, count) => element.innerHTML += `<span id="${text.toLowerCase().replace(" ", "-")}-span-${count}">${char}</span>`);
-    setTimeout(() => element.style.opacity = 1, delay);
-}
+[...document.querySelectorAll("body *")].forEach(element => {
+    element.animateText = function(to, time, delay = 0) {
+        setTimeout(() => {
+            var text = "";
+            [...this.children].forEach(child => {
+                text += child.innerHTML
+                child.style.transition = "transform " + time / 1000 + "s ease-in-out";
+            }); for (var i = 0; i < this.children.length; i++) {
+                (i => {
+                    var letterDelay = (i + 10) ** 2 / text.length / 1.7;
+                    setTimeout(() => this.children[i].style.transform = `translateY(${to})`, i * letterDelay);
+                }) (i)
+            }
+        }, delay + time);
+    }
 
-function clearText(element) {
-    element.innerHTML = "";
-}
+    element.setText = function(text, time = 0, delay = 0) {
+        this.innerHTML = "";
+        this.style.opacity = 0;
+        this.style.whiteSpace = "pre";
+        this.style.transition = "opacity " + time / 1000 + "s ease";
+        text.split("").forEach((char, count) => this.innerHTML += `<span id="${text.toLowerCase().replace(" ", "-")}-span-${count}">${char}</span>`);
+        setTimeout(() => this.style.opacity = 1, delay);
+        setTimeout(() => this.style.transition = "", delay + time);
+    }
 
-function animate(element, to, time, delay = 0) {
-    setTimeout(() => {
-        var text = "";
-        [...element.children].forEach(child => {
-            text += child.innerHTML
-            child.style.transition = "transform " + time / 1000 + "s ease-in-out";
-        }); for (var i = 0; i < element.children.length; i++) {
-            (i => {
-                var letterDelay = (i + 10) ** 2 / text.length / 1.7;
-                setTimeout(() => element.children[i].style.transform = `translateY(${to})`, i * letterDelay);
-            }) (i)
-        }
-    }, delay);
-}
+    element.clearText = function(delay = 0) {
+        setTimeout(() => this.innerHTML = "", delay);
+    }
+});

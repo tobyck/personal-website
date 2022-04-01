@@ -22,12 +22,11 @@
 <body>
     <div id="container"></div>
 </body>
-<script src="https://title-animation.surge.sh/script.js"></script>
+<script src="https://tobyck.surge.sh/modules/title-animation/script.js"></script>
 <script>
     element = document.getElementById("container");
-    clearText(element);
-    setText(element, "Hello World!", 500, 1000);
-    animate(element, "60vh", 700, 1500);
-    animate(element, "0", 700, 3000);
+    element.setText("Hello World", 500, 1000);
+    element.animateText("60vh", 550, 1500);
+    element.animateText("0", 600, 3000);
 </script>
 </html>
