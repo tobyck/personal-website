@@ -9,7 +9,9 @@
   - [Modular Multiplicitave Inverse](#modular-multiplicitave-inverse)
   - [Bezout's Coefficients](#bezouts-coefficients)
   - [Euler's Totient Function](#eulers-totient-function)
+  - [Primitive Roots](#primitive-roots)
   - [RSA Encryption](#rsa-encryption)
+  - [Diffie-Hellmen Key Exchange](#diffie-hellmen-key-exchange)
   - [Trigonometry Basics](#trigonometry-basics)
   - [Base 10 to Base 2](#base-10-to-base-2)
   <br><br>
@@ -111,6 +113,16 @@ For integers a and b with the gcd of d, there are coefficients x and y such that
 
 Euler's totient function of n (φ(n)) returns all of the positive integers less than n that are relatively prime to n. This is commonly used in cryptographic algorithms such as [RSA](#rsa-encryption), and the [Diffie Hellman Key Exchange](#diffie-hellman-key-exchange).  <br><br>
 
+### Primitive Roots
+
+To quote Wikipedia, "In modular arithmetic, <span>a</span> number <span>g</span> is a primitive root modulo <span>n</span> if every number <span>a</span> coprime to <span>n</span> is congruent to a power of <span>g</span> modulo <span>n</span>". That is to say that for each number <span>a</span> coprime to <span>n</span>, there is an integer <span>k</span> such that <span>ak</span> = <span>g</span> mod <span>n</span>. This is incredibly useful, and most used, in the [Diffie-Hellman key exchange](#diffie-hellman-key-exchange). 
+
+Useful links:
+- [Explanation on brilliant.org](https://brilliant.org/wiki/primitive-roots/)
+- [Stackoverflow discussion](https://stackoverflow.com/questions/40190849/efficient-finding-primitive-roots-modulo-n-using-python)
+- [Wikipedia Page](https://en.wikipedia.org/wiki/Primitive_root_modulo_n)
+<br><br>
+
 ### RSA Encryption
 
 RSA (named after it's creators, Rivest, Shamir, and Addleman) is a public-key encryption algorithm. Here is a breif explanation:
@@ -124,6 +136,20 @@ RSA (named after it's creators, Rivest, Shamir, and Addleman) is a public-key en
 7. To decrypt a message, do the same proccess used in encrption, but with the cipher, c, and the power of d (mod n).
 
 There is more information about RSA <a href="https://wikipedia.org/wiki/RSA_(cryptosystem)" target="_blank">on Wikipedia</a>, and there are also plenty of good explanations <a href="https://www.youtube.com/results?search_query=rsa+explanation" target="_blank">on YouTube</a>.  <br><br>
+
+### Diffie-Hellman Key Exchange
+
+A Diffie-Hellman key exchange is a method of securely exchanging a secret key between two parties. The proccess begins by both parties establishing a large prime number <span>n</span>, and <span>g</span>, the primitive root of <span>n</span>. Next each party, let's say Alice and Bob, randomly choose <span>a</span> and <span>b</span>. Only Alice whill know <span>a</span> and only Bob will know <span>b</span>. Alice then calculates <span>g<sup>a</sup> mod n</span>, while Bob calculates <span>g<sup>b</sup> mod n</span>. After sending these calculations to each other, Alice and Bob can calculate <span>g<sup>ab</sup> mod n</span>. This will be the shared secret from which a secure key can be derived. This can also be shown in a table:
+
+|          Alice                     | Public                                       | Bob                                |
+| :--------------------------------: | :------------------------------------------: | :--------------------------------: |
+|                                    | g    n                                       |                                    |
+| g<sup>a</sup> mod n                |                                              | g<sup>b</sup> mod n                | 
+| g<sup>a<sup>b</sup></sup> mod n    | g<sup>a</sup> mod n      g<sup>b</sup> mod n | g<sup>b<sup>a</sup></sup> mod n    |
+
+Useful links:
+- [Computerphile Video](https://www.youtube.com/watch?v=Yjrfm_oRO0w)
+- [Wikipedia Page](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
 
 ### Trigonometry Basics
 
@@ -169,6 +195,12 @@ Suppose you want to convert 44 (base 10) to base 2. Think of all of the powers o
 
     code {
         color: black !important;
+    }
+
+    th, td {
+        white-space: pre;
+        border: 1px solid black !important;
+        padding: 6px 10px 6px 10px !important;
     }
 
     span {
