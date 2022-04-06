@@ -10,7 +10,7 @@ li {
 a {
     text-decoration: none;
     color: #00bfff;
-    transition: color 0.5s ease;
+    transition: color 0.35s ease;
     font-size: 32px;
 }
 

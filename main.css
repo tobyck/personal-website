@@ -49,7 +49,7 @@ b {
 a {
     text-decoration: none;
     color: #00bfff;
-    transition: 0.5s ease;
+    transition: 0.35s ease;
 }
 
 a:hover {
