@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text&display=swap');
+
+body, div {
+    margin: 35px 50px 50px 50px !important;
+    background-color: white;
+    color: black;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+td {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.35s ease;
+    color: #00bfff;
+}
+
+a:hover {
+    color: #ff4ffb;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+    a:hover {
+        color: #00bfff;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body, div {
+        margin: 20px;
+    }
+}
