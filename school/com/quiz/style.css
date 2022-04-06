@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
+    --font: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+}
+
+.container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 300px;
+    transform: translate(-50%, 0);
+    font-family: var(--font);
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: 600;
+    user-select: none;
+    -webkit-user-select: none;
+    text-align: center;
+    margin: 20px;
+}
+
+hr, input {
+    width: 300px;
+}
+
+input {
+    font-size: 25px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+p {
+    font-size: 25px;
+}
+
+span {
+    color: #9ce02f;
+}
+
+.playAgain {
+    transition: color 0.4s ease;
+}
+
+.playAgain:hover {
+    cursor: pointer;
+    color: #999;
+}
