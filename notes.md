@@ -154,7 +154,7 @@ A Diffie-Hellman key exchange is a method of securely exchanging a secret key be
 | Alice                     | Public                      | Bob                                |
 |                           | g    n                      |                                    |
 | g^a^ mod n                |                             | g^b^ mod n                         | 
-| g^a<sup>b</sup>^ mod n    | g^a^ mod n      g^b^ mod n  | g^b<sup>a</sup>^ mod n                      |
+| g^a<sup>b</sup>^ mod n    | g^a^ mod n      g^b^ mod n  | g^b<sup>a</sup>^ mod n             |
 
 Useful links:
 - [Computerphile Video](https://www.youtube.com/watch?v=Yjrfm_oRO0w)
